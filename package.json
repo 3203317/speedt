@@ -1,0 +1,22 @@
+{
+  "name": "speedt",
+  "version": "0.1.0",
+  "description": "speedt",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3203317/speedt.git"
+  },
+  "keywords": [
+    "socket"
+  ],
+  "author": "huangxin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/3203317/speedt/issues"
+  },
+  "homepage": "https://github.com/3203317/speedt"
+}
