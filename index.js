@@ -1,5 +1,3 @@
 'use strict';
 
-module.exports = function(){
-	console.log('hello world');
-};
+module.exports = require('./lib/speedt');
