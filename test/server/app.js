@@ -6,7 +6,7 @@ app.set('name', 'uplserv');
 
 app.configure('production|development', function(){
 	app.route('upload', routeUtil.upload);
-	app.filter();
+	app.filter(speedt.timeout());
 });
 
 app.start();
