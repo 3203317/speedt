@@ -9,7 +9,9 @@ app.configure('production|development', function(){
 	app.filter(speedt.timeout());
 });
 
-app.start();
+app.start(function(){
+	console.log(arguments);
+});
 
 process.on('uncaughtException', function (err){
 	console.error('Caught exception: '+ err.stack);
