@@ -10,7 +10,6 @@ app.configure('production|development', function(){
 });
 
 app.start();
-console.log(speedt)
 
 process.on('uncaughtException', function (err){
 	console.error('Caught exception: '+ err.stack);
