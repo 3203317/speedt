@@ -9,8 +9,8 @@ app.configure('production|development', function(){
 	app.filter(speedt.timeout());
 });
 
-app.start(function(){
-	console.log(arguments);
+app.start(function (err){
+	if(err) console.log(err);
 });
 
 process.on('uncaughtException', function (err){
