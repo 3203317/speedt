@@ -12,5 +12,9 @@ var conn = net.createConnection(port, host, function(){
 })
 
 conn.on('error', function (err){
-	console.log('Error in connection: ', err)
+	console.error('Error in connection: ', err)
+})
+
+conn.on('data', function (data){
+	console.log('Some data has arrived: ', data)
 })

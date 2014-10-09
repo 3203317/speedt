@@ -30,4 +30,6 @@ server.on('connection', function (socket){
 	})
 })
 
-server.listen(port)
+server.listen(port, function(){
+	console.log('Server is started.')
+})
