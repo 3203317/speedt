@@ -28,6 +28,10 @@ server.on('connection', function (socket){
 		var index = sockets.indexOf(socket)
 		sockets.splice(index, 1)
 	})
+
+	socket.on('error', function (err){
+		console.log(err)
+	})
 })
 
 server.listen(port, function(){
