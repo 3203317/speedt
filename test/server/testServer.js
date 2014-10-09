@@ -17,6 +17,17 @@ server.on('connection', function (socket){
 	console.log('Got a new connection.')
 
 	sockets.push(socket)
+
+	socket.on('data', function (data){
+		console.log('Got data: ', data)
+	})
+
+	socket.on('close', function(){
+		console.log('Connection closed.')
+
+		var index = sockets.indexOf(socket)
+		sockets.splice(index, 1)
+	})
 })
 
 server.listen(port)

@@ -5,10 +5,10 @@ var port = 4001,
 
 var conn = net.createConnection(port, host, function(){
 	console.log('We have a new connection.');
-})
 
-conn.on('connection', function(){
-	console.log('Connected to server.')
+	conn.write('Hey!HuangXin', function(){
+		console.log('Data was written out.')
+	})
 })
 
 conn.on('error', function (err){
