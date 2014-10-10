@@ -8,6 +8,7 @@ var conn = net.createConnection(port, host, function(){
 
 	conn.write('Hey!HuangXin', function(){
 		console.log('Data was written out.')
+		conn.end()
 	})
 })
 

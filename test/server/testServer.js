@@ -14,19 +14,19 @@ server.on('close', function (err){
 })
 
 server.on('connection', function (socket){
-	console.log('Got a new connection.')
-
+	socket.name = socket.remoteAddress +':'+ socket.remotePort
 	sockets.push(socket)
+	console.log('Got a new connection: %s. Connection count: %s.', socket.name, sockets.length)
 
 	socket.on('data', function (data){
 		console.log('Got data: ', data)
 	})
 
 	socket.on('close', function(){
-		console.log('Connection closed.')
-
 		var index = sockets.indexOf(socket)
 		sockets.splice(index, 1)
+
+		console.log('Connection closed: %s. Connection count: %s.', socket.name, sockets.length)
 	})
 
 	socket.on('error', function (err){
