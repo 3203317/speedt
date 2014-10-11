@@ -5,6 +5,7 @@ var app = speedt.createApp();
 app.set('name', 'uplserv');
 
 app.configure('production|development', function(){
+	app.filter(speedt.time())
 	app.route('upload', routeUtil.upload);
 	app.filter(speedt.timeout());
 });
