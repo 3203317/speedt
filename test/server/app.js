@@ -12,7 +12,9 @@ app.configure('production|development', function(){
 
 app.start(function (err){
 	if(err) console.log(err);
-});
+})
+
+console.log(app)
 
 process.on('uncaughtException', function (err){
 	console.error('Caught exception: '+ err.stack);
