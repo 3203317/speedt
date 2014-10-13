@@ -14,7 +14,7 @@ app.start(function (err){
 	if(err) console.log(err);
 })
 
-console.log(app)
+console.log(speedt)
 
 process.on('uncaughtException', function (err){
 	console.error('Caught exception: '+ err.stack);
