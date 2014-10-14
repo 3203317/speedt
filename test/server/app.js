@@ -17,16 +17,16 @@ app.start(function (err){
 	if(err) console.log(err);
 })
 
-console.log(speedt.app)
+//console.log(speedt.app)
 
 process.on('uncaughtException', function (err){
-	console.error('Caught exception: '+ err.stack);
+	console.error('Caught exception: %s.', err.stack);
 })
 
-process.on('exit', function(code){
-	// do *NOT* do this
-	setTimeout(function(){
-		console.log('[%s] This will not run.', utils.format(new Date));
-	}, 0)
-	console.log('[%s] About to exit with code: %s', utils.format(new Date), code);
+process.on('exit', function (code){
+	if(0 === code){
+		console.log('[%s] Main Process exit.', utils.format(new Date))
+		return
+	}
+	console.error('[%s] Main Process exit with code: %s.', utils.format(new Date), code)
 })
