@@ -37,3 +37,5 @@ process.on('exit', function (code){
 	}
 	console.error('[%s] Main Process exit with code: %s.', utils.format(new Date), code)
 })
+
+console.log((speedt.connectors.udpconnector())())
