@@ -11,7 +11,14 @@ app.configure('production|development', function(){
 	app.filter(speedt.filters.time())
 	app.route('upload', routeUtil.upload);
 	app.filter(speedt.filters.timeout());
-});
+})
+
+app.configure('production|development', 'connector', function(){
+	app.set('connectorConfig', {
+		connector: '',
+		heartbeat: 3
+	})
+})
 
 app.start(function (err){
 	if(err) console.log(err);
@@ -20,7 +27,7 @@ app.start(function (err){
 //console.log(speedt.app)
 
 process.on('uncaughtException', function (err){
-	console.error('Caught exception: %s.', err.stack);
+	console.error('[%s] Caught exception: %s.', utils.format(new Date), err.stack);
 })
 
 process.on('exit', function (code){
