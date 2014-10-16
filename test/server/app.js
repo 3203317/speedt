@@ -15,19 +15,19 @@ app.configure('production|development', function(){
 
 app.configure('production|development', 'connector', function(){
 	app.set('connectorConfig', {
-		connector: '',
+		connector: speedt.connectors.tcpconnector,
 		heartbeat: 3
 	})
 })
 
 app.start(function (err){
-	if(err) console.log(err);
+	if(err) console.error(err)
 })
 
 //console.log(speedt.app)
 
 process.on('uncaughtException', function (err){
-	console.error('[%s] Caught exception: %s.', utils.format(new Date), err.stack);
+	console.error('[%s] Caught exception: %j.', utils.format(new Date), err.stack)
 })
 
 process.on('exit', function (code){
@@ -37,5 +37,3 @@ process.on('exit', function (code){
 	}
 	console.error('[%s] Main Process exit with code: %s.', utils.format(new Date), code)
 })
-
-console.log((speedt.connectors.udpconnector())())
