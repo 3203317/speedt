@@ -8,12 +8,12 @@ var app = speedt.createApp();
 app.set('name', 'uplserv');
 
 app.configure('production|development', function(){
-	app.filter(speedt.filters.time())
-	app.route('upload', routeUtil.upload);
-	app.filter(speedt.filters.timeout());
+	//app.filter(speedt.filters.time())
+	//app.route('upload', routeUtil.upload);
+	//app.filter(speedt.filters.timeout());
 })
 
-app.configure('production|development', 'connector', function(){
+app.configure('production|development', 'upload', function(){
 	app.set('connectorConfig', {
 		connector: speedt.connectors.tcpconnector,
 		heartbeat: 3
@@ -21,7 +21,7 @@ app.configure('production|development', 'connector', function(){
 })
 
 app.start(function (err){
-	if(err) console.error(err)
+	if(err) console.error('[%s] App err: %s', utils.format(new Date), err.message)
 })
 
 //console.log(speedt.app)
