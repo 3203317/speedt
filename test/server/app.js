@@ -1,19 +1,25 @@
+/*!
+ * SpeedT
+ * Copyright(c) 2014 huangxin <3203317@qq.com>
+ * MIT Licensed
+ */
 'use strict';
 
 var speedt = require('../../'),
-	routeUtil = require('./app/util/routeUtil'),
-	utils = require('../../lib/util/utils')
+	utils = require('../../lib/util/utils'),
+	dataFilter = require('./app/servers/connector/filter/dataFilter')
 
 var app = speedt.createApp();
 app.set('name', 'uplserv');
 
 app.configure('production|development', function(){
-	//app.filter(speedt.filters.time())
-	//app.route('upload', routeUtil.upload);
-	//app.filter(speedt.filters.timeout());
+	app.filter(speedt.time())
+	app.filter(speedt.timeout())
 })
 
-app.configure('production|development', 'upload', function(){
+app.configure('production|development', 'connector', function(){
+	app.filter(dataFilter())
+
 	app.set('connectorConfig', {
 		connector: speedt.connectors.tcpconnector,
 		heartbeat: 3
