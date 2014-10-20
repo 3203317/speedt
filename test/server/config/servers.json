@@ -3,7 +3,7 @@
 		"connector": [{
 				"id": "connector-server-1",
 				"host": "127.0.0.1",
-				"cientPort": 5001
+				"clientPort": 5001
 			}, {
 				"id": "connector-server-2",
 				"host": "127.0.0.1",
@@ -11,7 +11,7 @@
 			}, {
 				"id": "connector-server-3",
 				"host": "127.0.0.1",
-				"cientPort": 5003
+				"clientPort": 5003
 			}
 		]
 	}, "production": {
