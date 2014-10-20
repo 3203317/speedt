@@ -27,7 +27,7 @@ app.configure('production|development', 'connector', function(){
 })
 
 app.start(function (err){
-	if(err) console.error('[%s] App err: %s', utils.format(new Date), err.message)
+	if(err) console.error('[%s] App start error: %j', utils.format(new Date), err)
 })
 
 //console.log(speedt.app)
