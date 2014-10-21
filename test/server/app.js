@@ -21,7 +21,7 @@ app.configure('production|development', 'connector', function(){
 	app.filter(dataFilter())
 
 	app.set('connectorConfig', {
-		connector: speedt.connectors.tcpconnector,
+		connector: speedt.connectors.hyxconnector,
 		heartbeat: 3
 	})
 })
