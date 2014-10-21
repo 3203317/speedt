@@ -27,7 +27,7 @@ app.configure('production|development', 'connector', function(){
 })
 
 app.start(function (err){
-	if(err) console.error('[%s] App start error: %j', utils.format(new Date), err)
+	if(err) console.error('[%s] App start error: %j.', utils.format(new Date), err)
 })
 
 //console.log(speedt.app)
@@ -38,8 +38,8 @@ process.on('uncaughtException', function (err){
 
 process.on('exit', function (code){
 	if(0 === code){
-		console.log('[%s] Main Process exit.', utils.format(new Date))
+		console.log('[%s] Process exit.', utils.format(new Date))
 		return
 	}
-	console.error('[%s] Main Process exit with code: %s.', utils.format(new Date), code)
+	console.error('[%s] Process exit with code: %s.', utils.format(new Date), code)
 })
